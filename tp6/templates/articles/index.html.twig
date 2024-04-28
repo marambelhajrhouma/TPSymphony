@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des Articles {% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="card">
+           
+            <div class="card-body">
+                {% if articles %}
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prix</th>
+                                <th scope="col">Catégorie</th> {# Ajout de cette colonne pour afficher la catégorie #}
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td>{{ article.nom }}</td>
+                                    <td>{{ article.prix }}</td>
+                                    <td>{{ article.category.titre }}</td> {# Affichage de la catégorie de l'article #}
+                                    <td>
+                                        <a href="/article/{{ article.id }}" class="btn btn-outline-dark btn-sm">Détails</a>
+                                        <a href="/article/edit/{{ article.id }}" class="btn btn-outline-dark btn-sm">Modifier</a>
+                                        <a href="/article/delete/{{ article.id }}" class="btn btn-outline-dark btn-sm" onclick="return confirm('Etes vous sûr de supprimer cet article?');">Supprimer</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="text-center mt-5">
+                        <p class="fs-5">Aucun article disponible pour le moment.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Exemple: <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> -->
+{% endblock %}
+
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Ajouter un Article</h2>
+                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div class="form-group">
+                                {{ form_label(form.nom, 'Nom de l\'article', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.nom) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.prix, 'Prix de l\'article', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.prix) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                                {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.category) }}
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block">Créer</button>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

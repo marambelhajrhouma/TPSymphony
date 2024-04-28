@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Article{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Modifier l'article</h2>
+                
+                {{ form_start(form, {'attr': {'class': 'row g-3'}}) }}         
+                
+                <div class="col-12 mt-3">
+                    {{ form_widget(form) }}
+                    <button type="submit" class="btn btn-success">Modifier</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
