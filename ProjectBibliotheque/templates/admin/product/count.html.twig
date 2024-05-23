@@ -1,0 +1,24 @@
+{# templates/admin/product/count.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Count{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        Total Products
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">Product Count</h1>
+                        <p class="card-text">There are <strong>{{ productCount }}</strong> products in the database.</p>
+                    </div>
+                </div>
+                <a href="{{ path('admin_product_list') }}" class="btn btn-secondary mt-3">Back to list</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

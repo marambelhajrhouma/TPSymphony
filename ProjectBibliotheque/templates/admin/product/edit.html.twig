@@ -1,0 +1,19 @@
+{# templates/admin/product/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Edit Product</h1>
+        
+        <div class="card">
+            <div class="card-body">
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button class="btn btn-primary mt-3">Update</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+        <a href="{{ path('admin_product_list') }}" class="btn btn-secondary mt-3">Back to list</a>
+    </div>
+{% endblock %}

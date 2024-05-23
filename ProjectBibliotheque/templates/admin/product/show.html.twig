@@ -1,0 +1,31 @@
+{# templates/admin/product/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        {{ product.name }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> {{ product.price }}</p>
+                        <p class="card-text"><strong>Quantity:</strong> {{ product.quantity }}</p>
+                        <a href="{{ path('admin_product_edit', {id: product.id}) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ path('admin_product_delete', {id: product.id}) }}" method="post" class="d-inline">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="{{ path('admin_product_list') }}" class="btn btn-secondary mt-3">Back to list</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
