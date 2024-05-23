@@ -1,0 +1,13 @@
+{# templates/client/submit_command.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Submit Command{% endblock %}
+
+{% block body %}
+    <h1>Submit Command</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.command) }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    {{ form_end(form) }}
+{% endblock %}

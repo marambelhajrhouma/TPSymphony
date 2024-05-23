@@ -1,0 +1,16 @@
+{# templates/emails/admin_notification.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Client Registration</title>
+</head>
+<body>
+    <h1>New Client Registration</h1>
+    <p>A new client has registered:</p>
+    <ul>
+        <li>Name: {{ client.name }}</li>
+        <li>Email: {{ client.email }}</li>
+        {# Ajoutez d'autres détails du client selon vos besoins #}
+    </ul>
+</body>
+</html>

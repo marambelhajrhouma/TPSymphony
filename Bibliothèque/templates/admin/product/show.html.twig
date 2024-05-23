@@ -1,0 +1,16 @@
+
+{# templates/admin/product/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <p>Quantity: {{ product.quantity }}</p>
+    <a href="{{ path('admin_product_edit', {id: product.id}) }}">Edit</a>
+    <form action="{{ path('admin_product_delete', {id: product.id}) }}" method="post" style="display:inline;">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{{ path('admin_product_list') }}">Back to list</a>
+{% endblock %}

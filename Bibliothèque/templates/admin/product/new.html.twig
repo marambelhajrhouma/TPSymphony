@@ -1,0 +1,12 @@
+
+{# templates/admin/product/new.html.twig and templates/admin/product/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ form.vars.value.id is defined ? 'Edit Product' : 'Create New Product' }}</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ form.vars.value.id is defined ? 'Update' : 'Create' }}</button>
+    {{ form_end(form) }}
+    <a href="{{ path('admin_product_list') }}">Back to list</a>
+{% endblock %}
